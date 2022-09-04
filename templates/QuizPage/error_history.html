@@ -1,0 +1,12 @@
+{% extends 'QuizPage/base.html' %}
+
+{% block content %}
+{% include "QuizPage/sweetalert.html" %}
+    {% for post in posts %}
+        <div class='post'>
+            <p>{{ post['username'] }}</p>
+            <h2>{{ post['topic'] }}</h2>
+            <p>{{ post['score'] }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

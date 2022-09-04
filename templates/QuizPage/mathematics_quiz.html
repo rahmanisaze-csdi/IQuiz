@@ -1,0 +1,24 @@
+{% extends 'QuizPage/base.html' %}
+
+{% block content %}
+{% include "QuizPage/sweetalert.html" %}
+<a href="/home" class="btn btn-dark card-title mt-3">Kembali</a>
+<div class="card text-center mt-3">
+    <div class="card-header">
+        <h1>Mathematics Quiz</h1>
+    </div>
+    <div class="card-body">
+        <form action="/math_result" method="post">
+            <ol>
+                {% for i in q %}
+                <li>{{i}}</li>
+                {% for j in o[i] %}
+                <input type="radio" value="{{j}}" name="{{i}}" />{{j}}
+                {% endfor %}
+                {% endfor %}
+            </ol>
+            <input class="btn btn-dark" type="submit" value="submit" />
+        </form>
+    </div>
+</div>
+{% endblock %}
